@@ -201,12 +201,15 @@ else:
     key="canvas",
     )
 
-    if canvas_result.image_data is not None:
-        img = Image.fromarray(np.uint8(canvas_result.image_data))
-        img = img.convert("RGBA") # Background transparan
-        img.save("ttd.png")
-        st.session_state['path_ttd'] = "ttd.png"
-        st.success("TTD Tersimpan!")
+    if canvas_result is not None and canvas_result.image_data is not None:
+        try:
+            img = Image.fromarray(np.uint8(canvas_result.image_data))
+            img = img.convert("RGBA")
+            img.save("ttd.png")
+            st.session_state['path_ttd'] = "ttd.png"
+            st.success("TTD Tersimpan!")
+        except:
+            pass
 
     # MESIN HITUNG
     col1, col2 = st.columns(2)
