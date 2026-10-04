@@ -201,15 +201,14 @@ else:
     key="canvas",
     )
 
-    if canvas_result is not None and canvas_result.image_data is not None:
-        try:
-            img = Image.fromarray(np.uint8(canvas_result.image_data))
-            img = img.convert("RGBA")
-            img.save("ttd.png")
-            st.session_state['path_ttd'] = "ttd.png"
-            st.success("TTD Tersimpan!")
-        except:
-            pass
+    if canvas_result is not None:
+        if canvas_result.json_data is not None:
+            if len(canvas_result.json_data["objects"]) > 0:
+                img = Image.fromarray(np.uint8(canvas_result.image_data))
+                img = img.convert("RGBA")
+                img.save("ttd.png")
+                st.session_state['path_ttd'] = "ttd.png"
+                st.success("TTD Tersimpan!")   
 
     # MESIN HITUNG
     col1, col2 = st.columns(2)
