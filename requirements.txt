@@ -1,0 +1,7 @@
+streamlit
+pandas
+matplotlib
+Pillow
+reportlab
+streamlit-drawable-canvas
+numpy

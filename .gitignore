@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.png
+!temp_logo.png
+password.txt
+denah_temp.png
+ttd.png
